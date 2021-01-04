@@ -1,0 +1,100 @@
+#card-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    background-color: red;
+    font-size: 13px;
+}
+
+.container {
+    display: flex;
+    max-height: 300px;
+    min-width: 350px;
+    background: rgb(237, 235, 235);
+    border: 5px solid #282c34;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+img {
+    border-right: 5px solid #282c34;
+    border-radius: 9px 0px 0px 9px;
+    -webkit-border-radius: 9px 0px 0px 9px;
+    -moz-border-radius: 9px 0px 0px 9px;
+    -ms-border-radius: 9px 0px 0px 9px;
+    -o-border-radius: 9px 0px 0px 9px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+    align-items: center;
+    position: relative;
+}
+
+.name {
+    font-weight: 900;
+    font-size: 16px;
+    margin: 2vh 0;
+}
+
+.year {
+/*     font-size: 16px; */
+    font-weight: normal;
+}
+
+.description {
+    margin: 2vh;
+    text-align: left;
+}
+
+.price-wrapper {
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    bottom: 50px;
+}
+.price {
+    display: block;
+    color: #282c34;
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+
+    
+ /*    height: 38px; */
+
+
+    position: absolute; 
+    bottom: 2vh;
+
+}
+
+.amount {
+    width: 25%;
+/*     font-size: 20px; */
+    color: #282c34;
+}
+
+.button {
+    width: 75%;
+    background: #282c34;
+    color: white;
+    height: 44px;
+}
+
+/* @media screen and (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+} */

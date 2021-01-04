@@ -1,0 +1,113 @@
+* { box-sizing: border-box;}
+
+#card-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 13px;
+    padding: 0px 4px;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    background: rgb(237, 235, 235);
+    width: 350px;
+    height: 250px;
+    margin-bottom: 8px;
+    border: 2px solid #282c34;
+    border-radius: 15px;
+    box-shadow: 4px 4px gray;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+img {
+    width: 40%;
+    border-right: 2px solid #282c34;
+    border-radius: 12px 0px 0px 12px;
+    -webkit-border-radius: 12px 0px 0px 12px;
+    -moz-border-radius: 12px 0px 0px 12px;
+    -ms-border-radius: 12px 0px 0px 12px;
+    -o-border-radius: 12px 0px 0px 12px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* margin: 0 5%; */
+    align-items: center;
+    position: relative;
+}
+
+.center-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 54px;
+}
+.title {
+    font-weight: 900;
+    margin: 5px;
+
+}
+
+.year-genre {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.description {
+    margin: 0vh 1vh;
+    text-align: left;
+    height: 105px;
+    width: 80%;
+    border-top: 1px solid #282c34;
+    padding-top: 15px;
+}
+
+.price-wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    bottom: 50px;
+}
+.price {
+    display: block;
+    color: #282c34;
+    font-size: 18px;
+    font-weight: 700;
+    
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+
+    
+    height: 38px;
+
+
+    position: absolute; 
+    bottom: 10px;
+
+}
+
+.amount {
+    width: 25%;
+    font-size: 20px;
+    color: #282c34;
+}
+
+.button {
+    width: 75%;
+    background: #282c34;
+    color: white;
+}
