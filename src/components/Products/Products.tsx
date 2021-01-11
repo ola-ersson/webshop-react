@@ -13,10 +13,11 @@ interface IUrlProps {
 
 export default function Products(props: IUrlProps) {
 
+    const defaultValueCart: IMovie[] = [];
+    //const [cart, setCart] = useState(defaultValueCart);
+
     const defaultValueMovies: IMovie[] = [];
     const [movies, setMovies] = useState(defaultValueMovies);
-
-
 
     useEffect(() => {
         async function fetchData() {
@@ -31,12 +32,20 @@ export default function Products(props: IUrlProps) {
         fetchData();
     }, [props.endUrl])
 
+    function updateParent(cartId: number) {
+        console.log('')
+    };
+
+    const content = movies.map((movies, key) => {
+        return(<ProductsCard movies={movies}/>)
+    })
+
     return(
-        <div id="bakgrund">
-            <h1 id='products'>FILMER</h1>
-            <div id='films-center'>
-                <ProductsCard movies={movies}></ProductsCard>
-            </div>
-        </div>
+        <main>
+            <h1 className='text-center mb-10'>Filmer</h1>
+            <section id='film-wrapper' className='row wrap'>
+                {content}
+            </section>
+        </main>
     );
 }

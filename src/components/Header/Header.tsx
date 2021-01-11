@@ -2,19 +2,17 @@ import React from 'react';
 import './Header.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-export default function Header() {
+export default function Header(props: any) {
 
     return(
-        <div id="header">
-            <div id="wrapper">
-                <div id="rubrik">FÖRERETAGET.se</div>
-                <div id="cart-wrapper">
-                    <div id="icon-wrapper">
-                        <FontAwesomeIcon icon='shopping-basket' id='cart-icon'/>
-                        <div id="amount">1</div>
-                    </div>
+        <header className="bg-primary white">
+            <div className='header-wrapper mw-1440 auto row between center-v relative'>
+                <div id='company-logo' className='fw-700 ml-15'>FÖRERETAGET.se</div>
+                    <div id='icon-wrapper' className='icon-wrapper mr-15 relative'>
+                        <FontAwesomeIcon id='cart-icon' icon='shopping-basket' />
+                    <div id='cart-amount'>0</div>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }

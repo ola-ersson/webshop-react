@@ -1,20 +1,20 @@
-* { box-sizing: border-box;}
-
-#card-wrapper{
+#card-item {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 13px;
     padding: 0px 4px;
+    margin-bottom: 1rem;
 }
 
 .container {
     display: flex;
     margin: auto;
     text-align: center;
-    background: rgb(237, 235, 235);
-    width: 350px;
-    height: 250px;
+    /* background: rgb(237, 235, 235); */
+    background: var(--color-additional);
+    width: 330px;
+    height: 225px;
     margin-bottom: 8px;
     border: 2px solid #282c34;
     border-radius: 15px;
@@ -63,25 +63,24 @@ img {
 }
 
 .description {
-    margin: 0vh 1vh;
     text-align: left;
-    height: 105px;
-    width: 80%;
+    height: 90px;
+    width: 90%;
     border-top: 1px solid #282c34;
-    padding-top: 15px;
+    padding-top: 4px;
 }
 
 .price-wrapper {
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
-    bottom: 50px;
+    bottom: 44px;
 }
 .price {
     display: block;
     color: #282c34;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     
 }
@@ -92,22 +91,29 @@ img {
     width: 90%;
 
     
-    height: 38px;
+    height: 34px;
 
 
     position: absolute; 
-    bottom: 10px;
+    bottom: 8px;
+    justify-content: center;
 
 }
 
-.amount {
+/* .amount {
     width: 25%;
     font-size: 20px;
     color: #282c34;
-}
+} */
 
 .button {
-    width: 75%;
+    width: 100%;
     background: #282c34;
     color: white;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
 }

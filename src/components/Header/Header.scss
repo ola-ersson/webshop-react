@@ -1,37 +1,13 @@
-#header {
-    background-color: #282c34;
-    width: 100%;
-    
-  
-    color: white;
-}
-
-
-
-#wrapper {
-    max-width: 1440px;
-    margin: auto;
-    position: relative;
-    text-align: left;
-    display: flex;
+.header-wrapper {
     height: 100px;
 }
 
-#rubrik {
-    font-weight: 700;
-    /* font-size: 30px; */
+#company-logo {
     font-size: calc(13px + 5vmin);
-    padding-left: 20px;
-    margin: auto 0;
+    margin-bottom: 0.3rem;
 }
 
-#cart-wrapper {
-    /*display: block;
-    width: 48px;
-    height: 48px;
-    */position: absolute;
-    top: 23px;
-    right: 23px;
+#icon-wrapper {
     border: 2px solid #61dafb;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -39,23 +15,19 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
-
-#icon-wrapper {
-    position: relative;
-}
 #cart-icon {
     width: 48px;
     height: 48px;
     padding: 5px;
 }
 
-#amount {
-    width: 20px;
-    height: 20px;
+#cart-amount {
+    width: 24px;
+    height: 24px;
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    font-size: 13px;
+    bottom: 4px;
+    right: 4px;
+    font-size: 16px;
     text-align: center;
     font-weight: 700;
     background: green;
