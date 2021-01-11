@@ -31,7 +31,7 @@ export default function ProductsCard(props: IMovieProps) {
         };
 
     return(
-        <div id='card-item'>
+        <div id='card-item' key={props.movies.id}>
             <div className='container'>
                 <img src={props.movies.imageUrl} alt='picture of filmcover'/>
                 <div className='info'>

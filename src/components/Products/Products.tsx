@@ -5,39 +5,21 @@ import IMovie from '../../models/IMovie';
 import ProductsCard from '../ProductCard/ProductCard';
 import requests from '../../Requests';
 
-interface IUrlProps {
-    endUrl: string
+interface IPropsProducts {
+    products: IMovie[];
 }
 
-
-
-export default function Products(props: IUrlProps) {
+export default function Products(props: IPropsProducts) {
 
     const defaultValueCart: IMovie[] = [];
     //const [cart, setCart] = useState(defaultValueCart);
-
-    const defaultValueMovies: IMovie[] = [];
-    const [movies, setMovies] = useState(defaultValueMovies);
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const result = await axios.get<IMovie[]>(props.endUrl);
-                setMovies(result.data);
-            }
-            catch(err) {
-                console.log(err.message);
-            }
-        }
-        fetchData();
-    }, [props.endUrl])
 
     function updateParent(cartId: number) {
         console.log('')
     };
 
-    const content = movies.map((movies, key) => {
-        return(<ProductsCard movies={movies}/>)
+    const content = props.products.map((movies, key) => {
+        return(<ProductsCard movies={movies} key={key}/>)
     })
 
     return(
