@@ -1,18 +1,31 @@
 import React from 'react';
 import './Header.scss';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
-export default function Header(props: any) {
+interface IHeaderProps {
+  basketAmount: number;
+}
 
-    return(
-        <header className="bg-primary white">
-            <div className='header-wrapper mw-1440 auto row between center-v relative'>
-                <div id='company-logo' className='fw-700 ml-15'>fÖRERETAGET.se</div>
-                    <div id='icon-wrapper' className='icon-wrapper mr-15 relative'>
-                        <FontAwesomeIcon id='cart-icon' icon='shopping-basket' />
-                    <div id='cart-amount'>0</div>
-                </div>
-            </div>
-        </header>
-    );
+export default function Header(props: IHeaderProps) {
+  return (
+    <header className='bg-primary white'>
+      <div className='header-wrapper mw-1440 auto row jc-between center-v relative'>
+        <Link to='/' className='company-logo'>
+          fÖRERETAGEt.se
+        </Link>
+        <Link to='/admin'>"TO ADMIN"</Link>
+        <Link
+          to='/cart'
+          id='icon-wrapper'
+          className='header-icon-wrapper mr-15 relative'
+        >
+          <FontAwesomeIcon id='cart-icon' icon='shopping-basket' />
+          <div className='cart-amount'>
+            <div className='center-cart-amount'>{props.basketAmount}</div>
+          </div>
+        </Link>
+      </div>
+    </header>
+  );
 }

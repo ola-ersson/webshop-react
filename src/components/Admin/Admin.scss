@@ -1,0 +1,39 @@
+.admin-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.admin-top-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-title {
+  text-align: center;
+  padding: 2rem 0rem;
+  font-size: 3rem;
+  color: #282c34;
+  text-shadow: 0px 4px 4px var(--color-primary);
+}
+
+.admin-order-wrapper {
+  max-width: 60rem;
+  margin: auto;
+}
+
+.add-product-btn {
+  margin-bottom: 2vh;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.admin-text {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}

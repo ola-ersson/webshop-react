@@ -1,58 +1,42 @@
-import React, { ChangeEvent, useState } from 'react';
-import IMovie from '../../models/IMovie';
+import React from 'react';
+import IMovieItem from '../../models/IMovieItem';
 import './ProductCard.scss';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-interface IMovieProps {
-    movies: IMovie;
-    /* updateParent(productNumber: number): void; */
-    /* updateParent(movie: IMovie) : void; */
+interface IProductCardProps {
+  movie: IMovieItem;
+  toParent(item: IMovieItem, action: string): void;
 }
 
-
-
-export default function ProductsCard(props: IMovieProps) {
-
-/*     function addToCart(e: ChangeEvent<any>) {
-        props.updateParent(e.target.)
-    } */
-/* const [amount, setAmount] = useState(0); */
-
-
- /*    function addToCart(event: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) {
-        console.log(e.parentElement)
-    }; */
-
-        function addToCart(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-            //console.log(e.currentTarget.parentElement?.parentElement?.parentElement?.
-            //console.log(cardHTML)
-            /* console.log(props.movies.id) */
-            /* props.updateParent(props.movies.id); */
-        };
-
-    return(
-        <div id='card-item' key={props.movies.id}>
-            <div className='container'>
-                <img src={props.movies.imageUrl} alt='picture of filmcover'/>
-                <div className='info'>
-                    <div className='center-title'>
-                        <div className='title'>{props.movies.name}
-                            <span className='year-genre'> (Genre, {props.movies.year})</span>
-                        </div>
-                    </div>
-                    <div className='description'>
-                        <Scrollbars autoHide style={{ width: '100%', height: '100%'}}>
-                            {props.movies.description}
-                        </Scrollbars>
-                    </div>
-                    <div className='price-wrapper'>
-                        <div className='price'>{props.movies.price} kr</div>
-                    </div>
-                    <div className='cart'>
-                    <button type='button' className='button' onClick={addToCart}>Lägg i varukorgen</button>
-                    </div>
-                </div>
-            </div>
+export default function ProductsCard(props: IProductCardProps) {
+  return (
+    <div id='movie-card'>
+      <img src={props.movie.imageUrl} alt='filmcover' />
+      <div className='info'>
+        <div className='center-title'>
+          <div className='title'>
+            {props.movie.name}
+            <span className='year-genre'> (Genre, {props.movie.year})</span>
+          </div>
         </div>
-    );
+        <div className='description'>
+          <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
+            {props.movie.description}
+          </Scrollbars>
+        </div>
+        <div className='price-wrapper'>
+          <div className='price'>{props.movie.price} kr</div>
+        </div>
+        <div className='cart'>
+          <button
+            type='button'
+            className='movie-card-button'
+            onClick={() => props.toParent(props.movie, 'add')}
+          >
+            Lägg i varukorgen
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

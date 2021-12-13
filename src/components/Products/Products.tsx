@@ -1,33 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Products.scss';
-import axios from '../../Axios';
-import IMovie from '../../models/IMovie';
-import ProductsCard from '../ProductCard/ProductCard';
-import requests from '../../Requests';
+import IMovieItem from '../../models/IMovieItem';
+import ProductCard from '../ProductCard/ProductCard';
 
-interface IPropsProducts {
-    products: IMovie[];
+interface IProductsProps {
+  movies: IMovieItem[];
+  toParent(item: IMovieItem, action: string): void;
 }
 
-export default function Products(props: IPropsProducts) {
-
-    const defaultValueCart: IMovie[] = [];
-    //const [cart, setCart] = useState(defaultValueCart);
-
-    function updateParent(cartId: number) {
-        console.log('')
-    };
-
-    const content = props.products.map((movies, key) => {
-        return(<ProductsCard movies={movies} key={key}/>)
-    })
-
-    return(
-        <main>
-            <h1 className='text-center mb-10'>Filmer</h1>
-            <section id='film-wrapper' className='row wrap'>
-                {content}
-            </section>
-        </main>
-    );
+export default function Products(props: IProductsProps) {
+  function fromChild(item: IMovieItem, action: string) {
+    props.toParent(item, action);
+  }
+  const content = props.movies.map((movie) => {
+    return <ProductCard movie={movie} key={movie.id} toParent={fromChild} />;
+  });
+  return (
+    <div>
+      <h1 className='product-title'>Filmer</h1>
+      <section className='film-wrapper'>{content}</section>
+    </div>
+  );
 }

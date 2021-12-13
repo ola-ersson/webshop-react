@@ -1,0 +1,25 @@
+.admin-module-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cart-form {
+  max-width: 75rem;
+  min-width: 50vw;
+}
+
+.film-description-create {
+  font-size: 1.75rem;
+}
+
+.add-film-form-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.margin-left {
+  margin-left: 1rem;
+}

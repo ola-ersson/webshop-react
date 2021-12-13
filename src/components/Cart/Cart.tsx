@@ -1,9 +1,82 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import './Cart.scss';
+import IMovieItem from '../../models/IMovieItem';
+import { Scrollbars } from 'react-custom-scrollbars';
+import CartCard from '../CartCard/CartCard';
+import CartForm from '../CartForm/CartForm';
+import { Link } from 'react-router-dom';
 
-export default function Cart() {
+interface ICartProps {
+  cartItems: IMovieItem[];
+  totalPrice: number;
+  toParent(item: IMovieItem, action: string): void;
+  emptyCart(): void;
+  completePurchase(): void;
+  collectUserInfo(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void;
+}
 
-    return(
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, sint. Rerum dolorem, cum aliquam sint, sit doloremque ipsa officia magni accusamus quam culpa magnam fugit excepturi recusandae saepe nam sed laudantium necessitatibus dolorum! Dolore distinctio sequi sapiente, sunt, quidem repudiandae architecto rerum assumenda soluta ad aliquid neque in corrupti enim cum. Sunt earum esse fugit doloremque nihil quo suscipit sapiente sint iure in blanditiis qui, illo nulla rem perferendis repellat neque amet ea minus! Neque odit est excepturi ad magni, enim dignissimos architecto accusamus voluptatum, cum ullam consequuntur obcaecati, nulla eligendi quas error nostrum possimus doloribus deleniti distinctio corrupti ipsum illo reprehenderit. Corporis commodi id voluptas repellat, explicabo ducimus deleniti consectetur minus reprehenderit cum dolorem, quisquam voluptatem aspernatur veniam modi sint maxime eum aut facilis magnam ratione voluptate. Aspernatur inventore ut sit neque minima ratione corporis doloribus esse magni rerum nihil, ipsam dicta vero provident architecto quas nobis cum? Hic asperiores, esse corrupti neque aliquid nobis pariatur reiciendis aperiam animi accusantium qui eligendi voluptates voluptatem odio quaerat quia tempora sit dolorum at fugiat. Praesentium nesciunt nobis minus voluptatibus sed accusantium tenetur, tempora asperiores adipisci dicta! Architecto facilis accusantium iste eaque, consequatur vel sunt mollitia facere voluptatem aspernatur nesciunt dolorem laboriosam, cupiditate expedita. Ea provident quo error ad natus perferendis reiciendis nisi voluptas, necessitatibus deserunt, eius exercitationem voluptatibus eos sit alias dignissimos iusto, ex commodi fugit maiores! Nesciunt voluptatem obcaecati, fugiat voluptate dicta pariatur suscipit cupiditate velit laboriosam ducimus nobis alias architecto veritatis ut harum non rem recusandae beatae vero eveniet distinctio! Quisquam labore vel eos! Accusamus eos, ipsum sapiente alias pariatur at iusto voluptatibus temporibus adipisci autem eligendi aliquid recusandae molestiae ea omnis a blanditiis tenetur eius delectus quas rerum itaque! Molestias ab iure ducimus quia incidunt aliquam deserunt architecto. Necessitatibus consequatur sint sunt quam repudiandae neque eum ab iste beatae eaque atque, error qui officiis debitis perspiciatis asperiores ipsum illum, mollitia animi quibusdam! Nihil porro magnam blanditiis fugiat quos aut sed sint eaque quis animi nobis nesciunt, alias voluptate veniam molestiae libero doloribus et aspernatur cum quae totam excepturi cupiditate. Praesentium, odio quasi non odit aliquid reiciendis sunt eius facilis earum qui recusandae saepe eveniet ex perferendis blanditiis ullam sed similique voluptatum quos. Sapiente ipsam nesciunt vitae. Molestiae neque quibusdam voluptas, ducimus, accusamus incidunt pariatur consequuntur rem quisquam nihil tempora itaque corporis consequatur corrupti, officiis placeat veniam. Fuga assumenda voluptatibus magni omnis, magnam exercitationem mollitia at ab quis voluptate? Mollitia, hic magnam? Aliquam veritatis incidunt architecto quasi culpa eius optio minima, tempore deserunt corrupti possimus distinctio praesentium tempora quod repellendus reprehenderit voluptates dignissimos minus a dolorem, saepe consectetur animi accusantium. Eveniet beatae porro vero vitae maiores! Unde suscipit velit dolore ipsam? Omnis eum earum expedita provident molestiae ad fugit nemo harum placeat nihil quia voluptates saepe id, quam incidunt libero voluptas cumque nulla, laudantium voluptatum illo quo! Quibusdam illo reprehenderit soluta, numquam commodi, placeat laborum iure, doloremque cupiditate nihil dolorem dolorum porro ducimus non qui assumenda nobis. Est incidunt vitae nisi, nemo provident aspernatur molestiae? Aliquid rem nobis commodi amet, dicta illo facilis alias repellendus, aliquam voluptas eius molestiae animi iusto ipsam accusamus cum? Aut veniam ipsum quae cupiditate, laboriosam deserunt consequatur, mollitia ut minima omnis reprehenderit obcaecati esse illo ipsa at aspernatur sint. Sapiente, neque, optio alias quidem maxime nihil pariatur laudantium itaque, hic aliquam illo aspernatur aut dolorem aperiam. Officiis expedita in deserunt impedit quae! Dolores praesentium est a dolor ducimus maiores cum voluptates iure tenetur labore nostrum veniam quaerat voluptas dignissimos, velit temporibus corrupti, delectus rem laudantium impedit fuga. Veniam, ducimus doloribus! Vero velit sequi minus dicta eveniet ratione error exercitationem, nobis ipsum similique nostrum aliquam, ipsam dolores! Sint esse libero error laudantium odit iste asperiores vel aliquam commodi, corrupti ullam! Accusamus, voluptatibus repellendus! Tempore harum ipsam nesciunt dignissimos pariatur iste veniam earum, amet qui architecto, velit, atque itaque inventore hic ea quis numquam at nostrum facilis excepturi placeat distinctio magnam sapiente impedit. Ratione quae provident itaque iste exercitationem dignissimos, accusantium eos repellat magnam quos reiciendis a expedita tempore velit officiis delectus iure veritatis cum ipsa tenetur doloremque dolorem vel. Sed, nulla dolores aspernatur enim similique aut eum, voluptatum temporibus maiores sequi consectetur? Animi labore consequuntur deserunt assumenda eos laudantium reprehenderit cum iste. Voluptates, ut corrupti.</div>
-    );
+export default function Cart(props: ICartProps) {
+  const [toggleForm, setToggleForm] = useState(Boolean);
+
+  function fromChild(item: IMovieItem, action: string) {
+    props.toParent(item, action);
+  }
+
+  function collectUserInfo(
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    props.collectUserInfo(e);
+  }
+
+  function showForm(arg0: boolean): void {
+    setToggleForm(arg0);
+  }
+
+  const contentForm = toggleForm ? (
+    <CartForm
+      removeForm={showForm}
+      completePurchase={props.completePurchase}
+      collectUserInfo={collectUserInfo}
+    ></CartForm>
+  ) : (
+    <div className='cart-something'>
+      <div className='info'></div>
+    </div>
+  );
+
+  const content = props.cartItems.map((item) => {
+    return <CartCard item={item} toParent={fromChild} key={item.id}></CartCard>;
+  });
+
+  return (
+    <div className='main-cart'>
+      {contentForm}
+      <div id='cart-items-container'>
+        <div id='item-wrapper'>
+          <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
+            {content}
+          </Scrollbars>
+        </div>
+        <div className='summa'>Total summa: {props.totalPrice} kr</div>
+        <div className='cart-item-button-container'>
+          <button
+            type='button'
+            className='cart-item-container-button'
+            onClick={() => showForm(true)}
+          >
+            Gå till kassan
+          </button>
+          <Link to='/'>
+            <button
+              type='button'
+              className='cart-item-container-button'
+              onClick={() => props.emptyCart()}
+            >
+              Töm korgen
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }

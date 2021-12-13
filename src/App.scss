@@ -1,4 +1,17 @@
 .App {
-  background-color:rgb(245, 239, 239);
+  background: var(--color-additional);
+  font-weight: 700;
+  color: var(--color-text);
 }
 
+main {
+  max-width: 1440px;
+  background: var(--color-secondary);
+  margin: auto;
+  min-height: 90vh;
+}
+
+button {
+  color: var(--color-text);
+  background-color: var(--color-primary);
+}

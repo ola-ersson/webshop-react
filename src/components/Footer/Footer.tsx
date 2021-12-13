@@ -4,7 +4,7 @@ import './Footer.scss';
 export default function Footer() {
 
     return(
-        <footer>
+        <footer className='col '>
             <div id="copyright">Copyright företaget.se</div>
         </footer>
     );

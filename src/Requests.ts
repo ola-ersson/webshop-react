@@ -1,15 +1,16 @@
 interface IRequests {
-    productsUrl: string;
-    ordersUrl: string;
-    categoriesUrl: string;
-    searchUrl: string;
+  productUrl: string;
+  orderUrl: string;
+  categoryUrl: string;
+  searchUrl: string;
 }
+const requests: IRequests = {
+  productUrl: '/products',
+  orderUrl: '/orders',
+  categoryUrl: '/categories',
+  searchUrl: '/search',
+};
 
-const requests = {
-    productsUrl: 'products',
-    ordersUrl: 'orders',
-    categoriesUrl: 'categories',
-    searchUrl: 'search'
-}
+console.log(requests.productUrl);
 
 export default requests;

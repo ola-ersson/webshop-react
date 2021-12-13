@@ -1,0 +1,36 @@
+{
+  "database": [
+    {
+      "id": 6022,
+      "companyId": 8844,
+      "created": "2020-06-21T21:09:11.009",
+      "createdBy": "förnamn: Ulrika, efternamn: Alm, gata: Banergatan 52, postnummer: 11526, stad: Stockholm",
+      "paymentMethod": "visa",
+      "totalPrice": 398,
+      "status": 0,
+      "orderRows": [
+        {
+          "id": 7080,
+          "productId": 76,
+          "product": null,
+          "amount": 2,
+          "orderId": 6022
+        },
+        {
+          "id": 7081,
+          "productId": 92,
+          "product": null,
+          "amount": 1,
+          "orderId": 6022
+        },
+        {
+          "id": 7082,
+          "productId": 77,
+          "product": null,
+          "amount": 1,
+          "orderId": 6022
+        }
+      ]
+    }
+  ]
+}
